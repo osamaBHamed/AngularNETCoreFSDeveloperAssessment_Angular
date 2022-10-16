@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+    <div class="panel-heading">User List</div>
+
+<div class="panel-body">
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let item of signUp">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>
+                <a class="btn btn-primary" asp-action="UserRoles" (click)="onAddRole(item.id,item.name)" >Add Role</a>
+            </td>
+        </tr>
+        
+    </tbody>
+
+</table>
+</div>
+</div>

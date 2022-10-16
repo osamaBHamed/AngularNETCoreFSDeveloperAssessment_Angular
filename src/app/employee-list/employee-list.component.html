@@ -1,0 +1,68 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading">Search</div>
+
+<div class="panel-body">
+<div class="row">
+    
+    <div class="col-xs-1">
+        Name
+    </div>
+    <div class="col-xs-3">
+        <input type="text" class="form-control" #txtSearchName >
+    </div>
+
+    <div class="col-xs-1">
+        Department
+    </div>
+    <div class="col-xs-3">
+        <select class="form-control" #ddlSearchDepartment ngModel>
+            <option *ngFor="let item of departments" [value]="item.id">{{item.name}}</option>
+        </select>
+    </div>
+
+    <div class="col-xs-2">
+        
+            <input type="button" class="btn btn-primary" value="Search" (click)="onSearch()"  >
+        
+    </div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Employee List</div>
+
+<div class="panel-body">
+
+<div class="row">
+    <div class="col-xs-12">
+<table class="table table-bordered table-striped table-hover">
+<thead>
+    <tr>
+        
+        <th>Name</th>
+        <th>Department</th>
+        <th>Job Title</th>
+        <th>Phone</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <tr *ngFor="let item of employees">
+        <td>{{item.fName | userfullname:item.lName}}</td>
+        <td>{{item.department.name}}</td>
+        <td>{{item.jobTitle.name}}</td>
+        <td>{{item.phoneNo}}</td>
+        <td>
+            <a class="btn btn-danger" (click)="onDelete(item.id)" style="margin-right: 5px;">Delete</a>
+            <a class="btn btn-success" (click)="onEdit(item.id)" >Edit</a>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+    </div>
+</div>
+</div>

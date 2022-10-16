@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar-default">
+            <div class="navbar-brand">
+               HR System
+            </div>
+            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-target="#menu1" data-toggle="collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="menu1" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a routerLink="/Home/newEmp" >New Employee</a>
+                    </li>
+                    <li>
+                        <a routerLink="/Home/empList" >Employee List</a>
+                    </li>
+                    <li>
+                        <a routerLink="/Home/createAccount" >Create Account</a>
+                    </li>
+                    <li>
+                        <a routerLink="/Home/newRole" >New Role</a>
+                    </li>
+                    <li>
+                        <a routerLink="/Home/UserList" >User List</a>
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a (click)="onLogout()" >Logout</a></li>
+                </ul>
+            </div>
+  
+        </nav>
+    </div>
+  
+    <div class="row">
+        <div class="col-xs-12">
+            <router-outlet></router-outlet>
+        </div>
+  
+    </div>
+  </div>

@@ -1,0 +1,136 @@
+<form #f="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">Employee Information</div>
+    
+    <div class="panel-body">
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-7">
+                <div  class="alert" [ngClass]="{'alert-success': actionStatus == true, 'alert-danger' : actionStatus === false }" *ngIf="errorMessage">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>{{errorMessage}}</strong>
+                </div>
+            </div>
+        </div>
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>First Name</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" required name="txtFirstName" ngModel/>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Last Name</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" required name="txtLastName" ngModel/>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Phone No</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" required name="txtPhoneNo" ngModel/>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Email</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" required name="txtEmail" ngModel/>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Salary</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" required name="txtSalary" ngModel/>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Hire Date</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="date" class="form-control" required name="txtHireDate" ngModel/>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>BDate</span>
+        </div>
+        <div class="col-xs-6">
+            <input type="date" class="form-control" required name="txtBirthDate" ngModel/>
+        </div>
+    </div>
+    
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Job Title</span>
+        </div>
+        <div class="col-xs-6">
+            <select class="form-control" name="ddlJobTitle" required ngModel>
+                <option *ngFor="let item of jobTitles" [value]="item.id">{{item.name}}</option>
+    
+            </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Department</span>
+        </div>
+        <div class="col-xs-6">
+            <select class="form-control" name="ddlDepartment" required ngModel>
+                <option *ngFor="let item of departments" [value]="item.id">{{item.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Nationality</span>
+        </div>
+        <div class="col-xs-6">
+            <select class="form-control" name="ddlNationality" required ngModel>
+                <option *ngFor="let item of countries" [value]="item.id">{{item.name}}</option>
+    
+            </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Gender</span>
+        </div>
+        <div class="col-xs-6">
+            <select class="form-control" name="ddlGender" required ngModel>
+                <option *ngFor="let item of genderkeys" [value]="item">{{genderEnum[item]}}</option>
+    
+            </select>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-1">
+            <span>Status</span>
+        </div>
+        <div class="col-xs-6">
+            <select class="form-control" name="ddlStatus" required ngModel>
+                <option *ngFor="let item of employeeStatuskeys" [value]="item">{{employeeStatusEnum[item]}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-1" style="text-align:right ;margin-right:75px;margin-top:10px">
+            <input type="button" value="Save" class="btn btn-primary" (click)="onSave()" *ngIf="!isEditMode" />
+            <input type="button" value="Update" class="btn btn-primary" (click)="onUpdate()" *ngIf="isEditMode" />
+        </div>
+    </div>
+    </div>
+    </div>
+    </form>

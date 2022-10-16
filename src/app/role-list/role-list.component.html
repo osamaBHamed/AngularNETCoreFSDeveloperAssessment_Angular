@@ -1,0 +1,27 @@
+<div class="card col-xs-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>
+                {{name}}
+
+            </h5>
+        </div>
+        <div class="panel-body">
+            
+
+            <div *ngFor="let item of userRoles">
+                <input type="hidden" [value]="item.userId" />
+                <input type="hidden" [value]="item.roleId" />
+                <input type="checkbox" [checked]="item.isSelected" [(ngModel)]="item.isSelected" />
+                <label>
+                    {{item.roleName}}
+                </label>
+            </div>
+            
+
+        </div>
+        <div class="panel-footer">
+            <input type="button" value="Update" class="btn btn-primary" (click)="onUpdate(userRoles)"  />
+        </div>
+    </div>
+</div>
